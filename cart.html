@@ -1,0 +1,392 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        body, header {
+            margin: 0;
+            padding: 0;
+        } -->
+
+        <!-- /* Header Styling */ -->
+        <!-- header {
+            display: flex; 
+            justify-content: space-between;
+            align:center ;
+            padding: 20px;
+            background-color: #3f3636;
+            color: white;
+            font-size: 20px;
+            font-style: bold;
+        }
+        .cart-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-container img {
+            width: 200px;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .cart-container h2 {
+            font-size: 22px;
+            margin: 15px 0;
+        }
+
+        .cart-container p {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .cart-container .price, .total-price {
+            font-size: 18px;
+            color: #e67e22;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .cart-container .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .cart-container button {
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-container button:hover {
+            background-color: #2ecc71;
+        }
+
+        .quantity-button {
+            padding: 5px 10px;
+            font-size: 18px;
+            background-color: #ddd;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .quantity-button:hover {
+            background-color: #bbb;
+        }
+
+        .remove-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff4c4c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .remove-button:hover {
+            background-color: #ff3333;
+        }
+    </style> -->
+<!-- </head>
+<body>
+    <header>
+        <div class="logo">MyCart</div>
+        </header>
+
+<div class="cart-container">
+    <h2 id="cart-title">Product Title</h2>
+    <img id="cart-image" src="" alt="Product Image">
+    <p id="cart-description">Product Description</p>
+    <div class="price" id="cart-price">Price per Item: ₹0.00</div> -->
+
+    <!-- Quantity Controls -->
+    <!-- <div class="quantity-controls">
+        <button class="quantity-button" onclick="decrementQuantity()">-</button>
+        <span id="quantity">1</span>
+        <button class="quantity-button" onclick="incrementQuantity()">+</button>
+    </div>
+
+    <div class="total-price" id="total-price">Total: ₹0.00</div> -->
+
+    <!-- Remove Button -->
+    <!-- <button class="remove-button" onclick="removeFromCart()">Remove from Cart</button>
+</div>
+
+<script> -->
+    <!-- // Load product data from localStorage
+    const productData = JSON.parse(localStorage.getItem('cartProduct')); -->
+<!-- 
+    // Display product data on the cart page
+    if (productData) {
+        document.getElementById('cart-title').textContent = productData.title;
+        document.getElementById('cart-image').src = productData.image;
+        document.getElementById('cart-description').textContent = productData.description;
+        document.getElementById('cart-price').textContent = `Price per Item: ${productData.price}`;
+
+        // Extract the price as a number (removing any non-numeric characters)
+        const pricePerItem = parseFloat(productData.price.replace(/[^0-9.]/g, ''));
+        let quantity = 1; -->
+<!-- 
+        // Function to update total price based on quantity
+        function updateTotalPrice() {
+            const totalPrice = pricePerItem * quantity;
+            document.getElementById('total-price').textContent = `Total: ₹${totalPrice.toFixed(2)}`;
+        }
+
+        // Initial total price calculation
+        updateTotalPrice();
+
+        // Function to increment quantity and update total
+        function incrementQuantity() {
+            quantity++;
+            document.getElementById('quantity').textContent = quantity;
+            updateTotalPrice();
+        }
+
+        // Function to decrement quantity (minimum 1) and update total
+        function decrementQuantity() {
+            if (quantity > 1) {
+                quantity--;
+                document.getElementById('quantity').textContent = quantity;
+                updateTotalPrice();
+            }
+        }
+    } else {
+        document.querySelector('.cart-container').innerHTML = '<p>No items in the cart.</p>';
+    }
+
+    // Function to remove item from cart
+    function removeFromCart() {
+        // Remove product data from localStorage
+        localStorage.removeItem('cartProduct');
+
+        // Update the cart display
+        document.querySelector('.cart-container').innerHTML = '<p>No items in the cart.</p>';
+
+        // Optionally, show a confirmation or redirect the user
+        alert('Item removed from cart!');
+    }
+</script> -->
+
+<!-- </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        body, header {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Header Styling */
+        header {
+            display: flex; 
+            justify-content: space-between;
+            align:center ;
+            padding: 20px;
+            background-color: #3f3636;
+            color: white;
+            font-size: 20px;
+            font-style: bold;
+        }
+        .cart-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .cart-container img {
+            width: 200px;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .cart-container h2 {
+            font-size: 22px;
+            margin: 15px 0;
+        }
+
+        .cart-container p {
+            font-size: 16px;
+            color: #555;
+            margin: 10px 0;
+        }
+
+        .cart-container .price, .total-price {
+            font-size: 18px;
+            color: #e67e22;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .cart-container .quantity-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .cart-container button {
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-container button:hover {
+            background-color: #2ecc71;
+        }
+
+        .quantity-button {
+            padding: 5px 10px;
+            font-size: 18px;
+            background-color: #ddd;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .quantity-button:hover {
+            background-color: #bbb;
+        }
+
+        .remove-button, .buy-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .remove-button {
+            background-color: #ff4c4c;
+        }
+
+        .remove-button:hover {
+            background-color: #ff3333;
+        }
+
+        .buy-button {
+            background-color: #3498db;
+        }
+
+        .buy-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">MyCart</div>
+    </header>
+
+    <div class="cart-container">
+        <h2 id="cart-title">Product Title</h2>
+        <img id="cart-image" src="" alt="Product Image">
+        <p id="cart-description">Product Description</p>
+        <div class="price" id="cart-price">Price per Item: ₹0.00</div>
+
+        <!-- Quantity Controls -->
+        <div class="quantity-controls">
+            <button class="quantity-button" onclick="decrementQuantity()">-</button>
+            <span id="quantity">1</span>
+            <button class="quantity-button" onclick="incrementQuantity()">+</button>
+        </div>
+
+        <div class="total-price" id="total-price">Total: ₹0.00</div>
+
+        <!-- Action Buttons -->
+        <button class="remove-button" onclick="removeFromCart()">Remove from Cart</button>
+        <button class="buy-button" onclick="buyNow()">Buy Now</button>
+    </div>
+
+    <script>
+        // Load product data from localStorage
+        const productData = JSON.parse(localStorage.getItem('cartProduct'));
+
+        // Display product data on the cart page
+        if (productData) {
+            document.getElementById('cart-title').textContent = productData.title;
+            document.getElementById('cart-image').src = productData.image;
+            document.getElementById('cart-description').textContent = productData.description;
+            document.getElementById('cart-price').textContent = `Price per Item: ${productData.price}`;
+
+            // Extract the price as a number (removing any non-numeric characters)
+            const pricePerItem = parseFloat(productData.price.replace(/[^0-9.]/g, ''));
+            let quantity = 1;
+
+            // Function to update total price based on quantity
+            function updateTotalPrice() {
+                const totalPrice = pricePerItem * quantity;
+                document.getElementById('total-price').textContent = `Total: ₹${totalPrice.toFixed(2)}`;
+            }
+
+            // Initial total price calculation
+            updateTotalPrice();
+
+            // Function to increment quantity and update total
+            function incrementQuantity() {
+                quantity++;
+                document.getElementById('quantity').textContent = quantity;
+                updateTotalPrice();
+            }
+
+            // Function to decrement quantity (minimum 1) and update total
+            function decrementQuantity() {
+                if (quantity > 1) {
+                    quantity--;
+                    document.getElementById('quantity').textContent = quantity;
+                    updateTotalPrice();
+                }
+            }
+        } else {
+            document.querySelector('.cart-container').innerHTML = '<p>No items in the cart.</p>';
+        }
+
+        // Function to remove item from cart
+        function removeFromCart() {
+            localStorage.removeItem('cartProduct');
+            document.querySelector('.cart-container').innerHTML = '<p>No items in the cart.</p>';
+            alert('Item removed from cart!');
+        }
+
+        // Function for Buy Now button
+        function buyNow() {
+            alert('Proceeding to payment for ' + quantity + ' item(s).');
+            // Add your buy now functionality here, like redirecting to a checkout page
+        }
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        
+        /* Add some styling for the product details page */
+        .product-details {
+            max-width: 600px;
+            margin:0 auto;
+            padding: 20px;
+            text-align: center;
+            
+        }
+
+        .product-details img {
+            width: 40%;
+            border-radius: 8px;
+        }
+
+        .product-details h2 {
+            font-size: 24px;
+            margin: 15px 0;
+        }
+
+        .product-details p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .product-details .price {
+            font-size: 20px;
+            color: #e67e22;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .product-details button {
+            padding: 10px 20px;
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product-details button:hover {
+            background-color: #2ecc71;
+        }
+        .buy-now-button {
+            background-color: #3498db;
+        }
+
+        .buy-now-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body style="background-color: #e9e3e3;">
+
+<div class="product-details">
+    <img id="product-image" src="" alt="Product Image">
+    <h2 id="product-title">Product Title</h2>
+    <p id="product-description">Description of the product goes here.</p>
+    <div class="price" id="product-price">$0.00</div>
+    <!-- <button onclick="addToCart()">Add to Cart</button> -->
+    <div class="buttons">
+        <button onclick="addToCart()">Add to Cart</button>
+        <button class="buy-now-button" onclick="buyNow()">Buy Now</button>
+    </div>
+</div>
+
+<script>
+    // Sample product data
+    const products = {
+        "Product 1": {
+            image: "earings2.jpeg",
+            title: "Chandhbali earings ",
+            description: "Base Metal: Alloy Plating: 1Gram Silver Sizing: Adjustable Stone Type: Artificial Stones & Beads Type: Jhumkhas Net Quantity (N): 1 WOMENS NEW ALLOY WHITE ERRINGS Country of Origin: India",
+
+
+            price: "₹819.99"
+        },
+        "Product 2": {
+            image: "wahaj.jpeg",
+            title: "Pakistani Jamawar Boti",
+            description: "Pista green & Golden embroidered Nehru jacket, has a mandarin collar, a full button placket, sleeveless and three pockets",
+            price: "₹1569.99"
+        },
+        "Product 3": {
+            image: "earings.jpeg",
+            title: "Hoop earings",
+            description: "Design No: 141968 Base Metal: Copper Alloy Stone: Synthetic Stones Earring Weight (gms): 28 Earring Length (cm): 5 Earring Style: Chand Balis Earring Closure Type: Push Back",
+            price: "₹569.99"
+        },
+        "Product 4": {
+            image: "sajal.jpeg",
+            title: "Product 4",
+            description: "Detailed description of Product 4.",
+            price: "$39.99"
+        }
+    };
+
+    // Fetch the product name from the URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const productName = urlParams.get('product');
+
+    // Display product details
+    if (products[productName]) {
+        const product = products[productName];
+        document.getElementById('product-image').src = product.image;
+        document.getElementById('product-title').textContent = product.title;
+        document.getElementById('product-description').textContent = product.description;
+        document.getElementById('product-price').textContent = product.price;
+    } else {
+        document.querySelector('.product-details').innerHTML = '<p>Product not found.</p>';
+    }
+
+    // Add to Cart function (placeholder)
+     function addToCart() {
+        alert(`${productName} added to cart!`);
+    } 
+    
+        function addToCart() {
+            const product = {
+                image: document.getElementById('product-image').src,
+                title: document.getElementById('product-title').textContent,
+                description: document.getElementById('product-description').textContent,
+                price: document.getElementById('product-price').textContent
+            };
+    
+            // Save product data to localStorage
+            localStorage.setItem('cartProduct', JSON.stringify(product));
+    
+            // Redirect to the cart page
+            window.location.href = 'cart.html';
+        }
+    
+    
+</script>
+
+</body>
+</html>
